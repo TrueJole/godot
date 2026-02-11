@@ -1888,6 +1888,7 @@ int RenderingServer::global_shader_uniform_type_get_shader_datatype(GlobalShader
 }
 
 Rect2 RenderingServer::get_splash_stretched_screen_rect(const Size2 &p_image_size, const Size2 &p_window_size, SplashStretchMode p_stretch_mode) {
+	print_line("******get_splash_stretched_screen_rect at rendering_server.cpp");
 	Size2 imgsize = p_image_size;
 	Rect2 screenrect;
 	switch (p_stretch_mode) {

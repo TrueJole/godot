@@ -1214,6 +1214,7 @@ void DisplayServerWayland::window_set_size(const Size2i p_size, DisplayServer::W
 }
 
 Size2i DisplayServerWayland::window_get_size(DisplayServer::WindowID p_window_id) const {
+	print_line("####Wayland!");
 	MutexLock mutex_lock(wayland_thread.mutex);
 
 	ERR_FAIL_COND_V(!windows.has(p_window_id), Size2i());

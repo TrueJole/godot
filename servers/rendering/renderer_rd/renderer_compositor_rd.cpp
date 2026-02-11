@@ -181,7 +181,10 @@ void RendererCompositorRD::finalize() {
 	RD::get_singleton()->free_rid(blit.sampler);
 }
 
+#define MAIN_PRINT(msg) print_line(msg)
+
 void RendererCompositorRD::set_boot_image_with_stretch(const Ref<Image> &p_image, const Color &p_color, RenderingServer::SplashStretchMode p_stretch_mode, bool p_use_filter) {
+	print_line("******Boot splash with stretchmode: ", p_stretch_mode);
 	if (p_image.is_null() || p_image->is_empty()) {
 		return;
 	}

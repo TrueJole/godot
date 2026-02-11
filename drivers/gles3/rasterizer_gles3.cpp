@@ -468,6 +468,7 @@ void RasterizerGLES3::blit_render_targets_to_screen(DisplayServer::WindowID p_sc
 }
 
 void RasterizerGLES3::set_boot_image_with_stretch(const Ref<Image> &p_image, const Color &p_color, RenderingServer::SplashStretchMode p_stretch_mode, bool p_use_filter) {
+	print_line("******Boot splash with stretchmode: ", p_stretch_mode, " at rasterizer_gles3.cpp");
 	if (p_image.is_null() || p_image->is_empty()) {
 		return;
 	}
@@ -484,9 +485,11 @@ void RasterizerGLES3::set_boot_image_with_stretch(const Ref<Image> &p_image, con
 
 	RID texture = texture_storage->texture_allocate();
 	texture_storage->texture_2d_initialize(texture, p_image);
-
+	
+	print_line("******Boot splash img size: ", p_image->get_size());
+	print_line("******win size: ", win_size);
 	Rect2 screenrect = RenderingServer::get_splash_stretched_screen_rect(p_image->get_size(), win_size, p_stretch_mode);
-
+	print_line("******Boot splash screenrect: ", screenrect, " at rasterizer_gles3.cpp");
 #ifdef WINDOWS_ENABLED
 	if (!screen_flipped_y)
 #endif

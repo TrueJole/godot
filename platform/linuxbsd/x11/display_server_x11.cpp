@@ -2723,7 +2723,8 @@ void DisplayServerX11::window_set_size(const Size2i p_size, WindowID p_window) {
 
 Size2i DisplayServerX11::window_get_size(WindowID p_window) const {
 	_THREAD_SAFE_METHOD_
-
+	
+	print_line("####X11!");
 	ERR_FAIL_COND_V(!windows.has(p_window), Size2i());
 	const WindowData &wd = windows[p_window];
 	return wd.size;
