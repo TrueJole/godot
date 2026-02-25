@@ -5834,7 +5834,9 @@ void RichTextLabel::append_text(const String &p_bbcode) {
 				justification_flags_option = bbcode_options.find("jst");
 			}
 			if (justification_flags_option) {
+				print_line("justification_flags_option->value:", justification_flags_option->value);
 				Vector<String> subtag_b = _split_unquoted(justification_flags_option->value, U',');
+				print_line("subtag_b:", subtag_b);
 				jst_flags = 0; // Clear flags.
 				for (const String &E : subtag_b) {
 					if (E == "kashida" || E == "k") {
@@ -6110,12 +6112,15 @@ void RichTextLabel::append_text(const String &p_bbcode) {
 				Rect2 region;
 				OptionMap::Iterator region_option = bbcode_options.find("region");
 				if (region_option) {
+					print_line("region_option->value:", region_option->value);
 					Vector<String> region_values = _split_unquoted(region_option->value, U',');
+					print_line("region_values:", region_values);
 					if (region_values.size() == 4) {
 						region.position.x = region_values[0].to_float();
 						region.position.y = region_values[1].to_float();
 						region.size.x = region_values[2].to_float();
 						region.size.y = region_values[3].to_float();
+						print_line(region.position.x, region.position.y, region.size.x, region.size.y);
 					}
 				}
 
