@@ -787,7 +787,7 @@ void SpringBoneSimulator3D::set_gravity_direction(int p_index, const Vector3 &p_
 	if (is_config_individual(p_index)) {
 		return; // Joint config is individual mode.
 	}
-	settings[p_index]->gravity_direction = p_gravity_direction;
+	settings[p_index]->gravity_direction = p_gravity_direction.normalized();
 	_make_joints_dirty(p_index);
 }
 
