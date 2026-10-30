@@ -1410,6 +1410,10 @@ void SpriteFramesEditor::_animation_speed_changed(double p_value) {
 		return;
 	}
 
+	if (!frames->has_animation(edited_anim)) {
+		return;
+	}
+
 	EditorUndoRedoManager *undo_redo = EditorUndoRedoManager::get_singleton();
 	undo_redo->create_action(TTR("Change Animation FPS"), UndoRedo::MERGE_ENDS, frames.ptr());
 	undo_redo->add_do_method(frames.ptr(), "set_animation_speed", edited_anim, p_value);
